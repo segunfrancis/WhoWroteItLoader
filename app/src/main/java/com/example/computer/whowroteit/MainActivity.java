@@ -23,5 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void searchBooks(View view) {
         String queryString = mBookInput.getText().toString().trim();
+        new FetchBook(mTitleText, mAuthorText).execute(queryString);
     }
 }
