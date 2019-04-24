@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
 
         if (networkInfo != null && networkInfo.isConnected() && queryString.length() != 0) {
-            //new FetchBook(mTitleText, mAuthorText).execute(queryString);
             Bundle queryBundle = new Bundle();
             queryBundle.putString("queryString", queryString);
             getSupportLoaderManager().restartLoader(0, queryBundle, this);
