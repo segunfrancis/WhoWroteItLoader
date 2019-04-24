@@ -43,9 +43,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textIsSelectable="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_button"
-        tools:text="Things fall apart" />
+        app:layout_constraintTop_toBottomOf="@id/search_button" />
 
     <TextView
         android:id="@+id/author_text"
@@ -53,8 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textIsSelectable="true"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_text"
-        tools:text="Chinua Achebe" />
+        app:layout_constraintTop_toBottomOf="@id/title_text" />
 
 </android.support.constraint.ConstraintLayout>

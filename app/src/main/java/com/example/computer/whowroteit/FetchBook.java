@@ -37,10 +37,13 @@ public class FetchBook extends AsyncTask<String, Void, String> {
         try {
             JSONObject jsonObject = new JSONObject(s);
             JSONArray itemsArray = jsonObject.getJSONArray("items");
+
             int i = 0;
             String title = null;
             String authors = null;
 
+            // Look for results in the items array, exiting when both the title
+            // and author are found or when all items have been checked.
             while (i < itemsArray.length() && (authors == null && title == null)) {
                 // Get the current item information
                 JSONObject book = itemsArray.getJSONObject(i);
@@ -52,10 +55,6 @@ public class FetchBook extends AsyncTask<String, Void, String> {
                     title = volumeInfo.getString("title");
                     authors = volumeInfo.getString("authors");
                 } catch (Exception e) {
-                    // if onPostExecute does not receive a proper JSON string,
-                    // update the UI to show failed results.
-                    mTitleText.get().setText(R.string.no_results);
-                    mAuthorText.get().setText("");
                     e.printStackTrace();
                 }
                 // Move to the next item
@@ -71,7 +70,11 @@ public class FetchBook extends AsyncTask<String, Void, String> {
                     mAuthorText.get().setText("");
                 }
             }
-        } catch (JSONException e) {
+        } catch (Exception e) {
+            // if onPostExecute does not receive a proper JSON string,
+            // update the UI to show failed results.
+            mTitleText.get().setText(R.string.no_results);
+            mAuthorText.get().setText("");
             e.printStackTrace();
         }
     }
